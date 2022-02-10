@@ -7,6 +7,12 @@ describe('Thermostat', () => {
   });
 
   it('starts at 20 degress', () => {
-    expect(thermostat.temperature).toEqual(20);
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
+
+  it('increases temperature', () => {
+    thermostat.up();
+    expect(thermostat.getCurrentTemperature()).toEqual(21);
+  })
 });
+
