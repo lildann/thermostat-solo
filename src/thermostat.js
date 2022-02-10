@@ -2,10 +2,11 @@
 
 class Thermostat {
   constructor() {
-    this.temperature = 20;
+    this.DEFAULT_TEMPERATURE = 20;
     this.MINIMUM_TEMPERATURE = 10;
     this.MAXIMUM_TEMPERATURE = 32;
     this.MAXIMUM_POWER_SAVE_TEMPERATURE = 25;
+    this.temperature = this.DEFAULT_TEMPERATURE;
     this.powerSavingMode = true;
   }
 
@@ -35,11 +36,6 @@ class Thermostat {
    return (this.isPowerSavingModeOn() === true && this.getCurrentTemperature() === this.MAXIMUM_POWER_SAVE_TEMPERATURE) || 
    (this.isPowerSavingModeOn() === false && this.getCurrentTemperature() === this.MAXIMUM_TEMPERATURE)
   }
-  // isMaximumTemperature() {
-  //  if (this.isPowerSavingModeOn() === true) { 
-  //    return this.getCurrentTemperature() === this.MAXIMUM_POWER_SAVE_TEMPERATURE;
-  //  }
-  // }
 
   isPowerSavingModeOn() {
     return this.powerSavingMode === true;
@@ -51,5 +47,9 @@ class Thermostat {
 
   powerSavingModeOn() {
     this.powerSavingMode = true;
+  }
+
+  reset() {
+    this.temperature = this.DEFAULT_TEMPERATURE;
   }
 };

@@ -26,8 +26,13 @@ describe('Thermostat', () => {
     }
     expect(thermostat.getCurrentTemperature()).toEqual(10)
   })
- 
 
+  it('temperature can be reset to 20 degrees', () => {
+    thermostat.up();
+    thermostat.reset();
+    expect(thermostat.getCurrentTemperature()).toEqual(20)
+  })
+ 
   describe('Power Saving Mode', () => {
     it('has power saving mode on by default', () => {
       expect(thermostat.isPowerSavingModeOn()).toEqual(true)
