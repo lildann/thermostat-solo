@@ -5,34 +5,34 @@ describe('Thermostat', () => {
   beforeEach(() => {
     thermostat = new Thermostat(); 
   });
+  describe('Temperature', () => {
+    it('starts at 20 degress', () => {
+      expect(thermostat.getCurrentTemperature()).toEqual(20);
+    });
 
-  it('starts at 20 degress', () => {
-    expect(thermostat.getCurrentTemperature()).toEqual(20);
-  });
+    it('increases temperature', () => {
+      thermostat.up();
+      expect(thermostat.getCurrentTemperature()).toEqual(21);
+    })
 
-  it('increases temperature', () => {
-    thermostat.up();
-    expect(thermostat.getCurrentTemperature()).toEqual(21);
-  })
-
-  it('decreases temperature', () => {
-    thermostat.down();
-    expect(thermostat.getCurrentTemperature()).toEqual(19);
-  })
-
-  it('has a minium temperature of 10 degrees', () => {
-    for (let i = 0; i < 15; i++) {
+    it('decreases temperature', () => {
       thermostat.down();
-    }
-    expect(thermostat.getCurrentTemperature()).toEqual(10)
-  })
+      expect(thermostat.getCurrentTemperature()).toEqual(19);
+    })
 
-  it('temperature can be reset to 20 degrees', () => {
-    thermostat.up();
-    thermostat.reset();
-    expect(thermostat.getCurrentTemperature()).toEqual(20)
+    it('has a minium temperature of 10 degrees', () => {
+      for (let i = 0; i < 15; i++) {
+        thermostat.down();
+      }
+      expect(thermostat.getCurrentTemperature()).toEqual(10)
+    })
+
+    it('temperature can be reset to 20 degrees', () => {
+      thermostat.up();
+      thermostat.reset();
+      expect(thermostat.getCurrentTemperature()).toEqual(20)
+    })
   })
- 
   describe('Power Saving Mode', () => {
     it('has power saving mode on by default', () => {
       expect(thermostat.isPowerSavingModeOn()).toEqual(true)
