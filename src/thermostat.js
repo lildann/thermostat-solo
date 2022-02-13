@@ -30,11 +30,11 @@ class Thermostat {
     this.temperature -= 1;
   }
 
-  isMimumumTemperature() {
+  _isMimumumTemperature() {
     return this.temperature === this.MINIMUM_TEMPERATURE;
   }
 
-  isMaximumTemperature() {
+  _isMaximumTemperature() {
    return (this.isPowerSavingModeOn() === true && this.getCurrentTemperature() === this.MAXIMUM_POWER_SAVE_TEMPERATURE) || 
    (this.isPowerSavingModeOn() === false && this.getCurrentTemperature() === this.MAXIMUM_TEMPERATURE)
   }

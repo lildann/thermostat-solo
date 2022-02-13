@@ -1,11 +1,11 @@
 .low-usage {
-  color: greenyellow;
+  color: rgb(18, 165, 18);
 }
 
 .medium-usage {
-  color: blue;
+  color: rgb(16, 16, 139);
 }
 
 .high-usage {
-  color: hotpink;
+  color: rgb(196, 9, 71);
 }
